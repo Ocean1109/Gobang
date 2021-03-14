@@ -97,7 +97,7 @@ public class Core {
         else return -1;
     }
     public boolean canChess(int x,int y){
-        if(x>=0&&x<this.x&&y>0&&y<this.y){
+        if(x>=0&&x<this.x&&y>0&&y<this.y&&core[x][y]==0){
             return true;
         }else{
             return false;

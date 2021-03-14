@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class Windows extends JFrame implements MouseListener {
     public Core core;
     private static final long serialVersionUID = 1L;
-    private int var = 1;
+    private int var = 2;
     //iBuffer和gBuffer是为了消除调用repaint()时出现的闪烁
     private Image iBuffer;
     private Graphics gBuffer;
@@ -108,6 +108,7 @@ public class Windows extends JFrame implements MouseListener {
         }
         if(e.getX()>690&&e.getX()<760&&e.getY()>120&&e.getY()<150) {
             core.Restart();
+            var=2;
             this.repaint();
         }
         if(e.getX()>690&&e.getX()<760&&e.getY()>180&&e.getY()<210) {
