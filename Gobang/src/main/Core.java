@@ -10,7 +10,7 @@ public class Core {
     private int[][] core;
     private int x;
     private int y;
-    //记录下棋的类
+    //记录一个棋子的类
     class Chess{
         int x;
         int y;
@@ -19,8 +19,9 @@ public class Core {
             this.y=y;
         }
     }
-    //栈
+    //栈，用于悔棋
     Stack<Chess> stack;
+    //构造方法
     public Core(int x,int y){
         stack = new Stack<>();
         core=new int[x][y];
@@ -29,7 +30,7 @@ public class Core {
     }
     //判断输赢
     public int checkWin(int x,int y,int var){
-        //横向
+        //横向判断
         int trans=0;
         for(int i=x-4;i<x-5;i++){
             if(i<0||i>=this.x)
@@ -42,7 +43,7 @@ public class Core {
             }
             if(trans==5)return var;
         }
-        //纵向
+        //纵向判断
         int vertical=0;
         for(int i=y-4;i<y+5;i++){
             if(i<0||i>=this.y)
@@ -55,7 +56,7 @@ public class Core {
             }
             if(vertical==5)return var;
         }
-        //从左上到右下
+        //从左上到右下判断
         int leftUPToDown = 0;
         for(int i=x-4,j=y+4;i<x+5&&j>y-5;i++,j--) {
             if(i<0||i>=this.x||j<0||j>=this.y) continue;
@@ -66,7 +67,7 @@ public class Core {
             }
             if(leftUPToDown==5) return var;
         }
-        //从左下到右上
+        //从左下到右上判断
         int leftDownToUP = 0;
         for(int i=x+4,j=y+4;i>x-5&&j>y-5;i--,j--) {
             if(i<0||i>=this.x||j<0||j>=this.y) continue;
